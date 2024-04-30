@@ -43,6 +43,11 @@ async function run() {
       res.send(result)
     })
 
+    app.get("/singleProduct/:id", async(req, res) => {
+      const result = await craftCollection.findOne({_id: new ObjectId(req.params.id)})
+      res.send(result)
+    })
+
     app.get("/updateItem/:id", async (req, res) => {
       const result = await craftCollection.findOne({ _id: new ObjectId(req.params.id) })
       res.send(result)
